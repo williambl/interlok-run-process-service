@@ -13,12 +13,18 @@ public class RunProcessServiceTest extends ServiceCase {
   }
 
   public void testService() throws Exception {
-    execute(new RunProcessService(), AdaptrisMessageFactory.getDefaultInstance().newMessage());
+    RunProcessService service = new RunProcessService();
+    service.setCommand("ls");
+    service.setDirectory("/home/william/dev/Interlok/bin/Interlok");
+    execute(service, AdaptrisMessageFactory.getDefaultInstance().newMessage());
   }
 
   @Override
   protected Object retrieveObjectForSampleConfig() {
-    return new RunProcessService();
+    RunProcessService service = new RunProcessService();
+    service.setCommand("ls");
+    service.setDirectory("/home/william/dev/Interlok/bin/Interlok");
+    return service;
   }
 
 }
