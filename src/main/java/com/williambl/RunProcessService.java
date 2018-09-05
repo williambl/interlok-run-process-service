@@ -1,14 +1,25 @@
 package com.williambl.interlok.services;
 
+import java.io.*;
+import java.util.Arrays;
+
 import com.adaptris.core.*;
 import com.adaptris.core.util.*;
 import com.adaptris.annotation.*;
 
 import org.hibernate.validator.constraints.NotBlank;
-import java.io.*;
-import java.util.Arrays;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+/**
+ * Service which runs an operating system process.
+ *
+ * <p>
+ * This can be a very bad security risk. <strong>It can run arbitrary code!</strong>
+ * Be <em>extremely</em> careful with this service.
+ * </p>
+ * @see java.lang.ProcessBuilder
+ */
 
 @XStreamAlias("run-process-service")
 @ComponentProfile(summary="Run a command-line process", tag="service,process")
@@ -22,6 +33,9 @@ public class RunProcessService extends ServiceImp {
     @InputFieldHint(expression = true)
     private String directory;
 
+    /**
+     * @see com.adaptris.core.Service#doService(AdaptrisMessage) 
+     */
     public void doService(AdaptrisMessage msg) throws ServiceException {
 
         // The scary-looking regex will split the string on spaces
@@ -40,14 +54,11 @@ public class RunProcessService extends ServiceImp {
         }
     }
 
-    public final void prepare() {
-    }
+    public final void prepare () {}
 
-    public final void initService() {
-    }
+    public final void initService () {}
 
-    public final void closeService() {
-    }
+    public final void closeService () {}
 
     public void setCommand (String commandIn) {
         this.command = commandIn;
