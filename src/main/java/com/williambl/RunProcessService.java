@@ -2,6 +2,8 @@ package com.williambl.interlok.services;
 
 import com.adaptris.core.*;
 import com.adaptris.core.util.*;
+import com.adaptris.annotation.*;
+
 import org.hibernate.validator.constraints.NotBlank;
 import java.io.*;
 import java.util.Arrays;
