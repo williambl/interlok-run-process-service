@@ -9,6 +9,7 @@ import java.util.Arrays;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("run-process-service")
+@ComponentProfile(summary="Run a command-line process", tag="service,process")
 public class RunProcessService extends ServiceImp {
 
     @NotBlank
