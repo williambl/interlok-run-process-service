@@ -2,9 +2,9 @@ package com.williambl.interlok.services;
 
 import com.adaptris.core.*;
 
-public class EchoServiceTest extends ServiceCase {
+public class RunProcessServiceTest extends ServiceCase {
 
-  public EchoServiceTest(java.lang.String testName) {
+  public RunProcessServiceTest(java.lang.String testName) {
     super(testName);
   }
 
@@ -13,12 +13,12 @@ public class EchoServiceTest extends ServiceCase {
   }
 
   public void testService() throws Exception {
-    execute(new EchoService(), AdaptrisMessageFactory.getDefaultInstance().newMessage());
+    execute(new RunProcessService(), AdaptrisMessageFactory.getDefaultInstance().newMessage());
   }
 
   @Override
   protected Object retrieveObjectForSampleConfig() {
-    return new EchoService();
+    return new RunProcessService();
   }
 
 }
