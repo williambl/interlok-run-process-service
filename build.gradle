@@ -2,7 +2,7 @@ ext {
   adpCoreVersion = project.hasProperty('adpCoreVersion') ? project.getProperty('adpCoreVersion') : '3.6-SNAPSHOT'
   releaseVersion = project.hasProperty('releaseVersion') ? project.getProperty('releaseVersion') : '3.6-SNAPSHOT'
   defaultNexusRepo = project.hasProperty('defaultNexusRepo') ? project.getProperty('defaultNexusRepo') : 'https://repo1.maven.org/maven2/'
-  componentName='Interlok/Example Service'
+  componentName='WilliamBL/Run Process Service'
   slf4jVersion = '1.7.12'
 }
 
@@ -19,7 +19,7 @@ apply plugin: 'maven'
 apply plugin: "jacoco"
 
 sourceCompatibility = 1.8
-group   = 'com.adaptris'
+group   = 'com.williambl'
 version = releaseVersion
 def versionDir = "$buildDir/version"
 

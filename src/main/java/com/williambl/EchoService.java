@@ -1,5 +1,5 @@
 
-package com.adaptris.samples;
+package com.williambl.interlok.services;
 
 import com.adaptris.core.*;
 import com.adaptris.core.util.*;
