@@ -1,7 +1,7 @@
 package com.williambl.interlok.services;
 
 import java.io.*;
-import java.util.Arrays;
+import java.util.*;
 
 import com.adaptris.core.*;
 import com.adaptris.core.util.*;
@@ -33,6 +33,8 @@ public class RunProcessService extends ServiceImp {
     @InputFieldHint(expression = true)
     private String directory;
 
+    private HashMap<String, String> environVars;
+
     /**
      * @see com.adaptris.core.Service#doService(AdaptrisMessage) 
      */
@@ -46,6 +48,8 @@ public class RunProcessService extends ServiceImp {
         ProcessBuilder pb = new ProcessBuilder(Arrays.asList(args));
 
         pb.directory(new File(msg.resolve(directory)));
+
+        pb.environment().putAll(environVars);
 
         try {
             Process p = pb.start();
@@ -74,5 +78,13 @@ public class RunProcessService extends ServiceImp {
 
     public String getDirectory () {
         return this.directory;
+    }
+
+    public void setEnvironVars (HashMap<String, String> environVarsIn) {
+        this.environVars = environVarsIn;
+    }
+
+    public HashMap<String, String> getEnvironVars () {
+        return this.environVars;
     }
 }
